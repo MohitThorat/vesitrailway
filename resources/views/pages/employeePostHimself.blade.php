@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post Yourself</h1>
+<div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div>
+    <h1>Post Yourself For employers</h1>
     <form method = "POST" action = "{{action('JobsController@postYourself')}}">
     @csrf
     Name:<input name = "name" type = "text" >

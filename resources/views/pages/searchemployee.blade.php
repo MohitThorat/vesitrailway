@@ -8,15 +8,23 @@
 </head>
 <body>
 <form method = "POST" action = "{{action('JobsController@searchEmployee')}}">
+<div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div>
     @csrf
-    <select name = "role" required>
-    <option>Select a job type</option>
+    <h1>Search Employee Here</h1>
+  Profile<select name = "role" required>
         <option value="Front End">Front End</option>
     <option value="Back End">Back End</option>
     <option value="Full Stack">Full Stack</option>
     <option value="ML">ML</option>
     </select> 
-    <select required name = "location">
+    Location<select required name = "location">
         <option value="Mumbai">Mumbai</option>
     <option value="Pune">Pune</option>
     <option value="Delhi">Delhi</option>

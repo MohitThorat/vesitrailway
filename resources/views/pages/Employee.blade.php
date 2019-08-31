@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Employee</h1>
+    <h1>Employee- Search for a job here.</h1>
     <form method = "POST" action = "{{action('JobsController@showJobs')}}">
     @csrf
     Salary<input name = "sal" type = "number" min = 1000>

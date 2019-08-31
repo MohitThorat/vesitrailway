@@ -24,6 +24,7 @@ class JobsController extends Controller
                 'salary'=>$request['sal'],
             ]
         );
+        $request->session()->flash('alert-success', 'Job was successful added!');
         return redirect()->back()->with('sucess','Sucessfully posted job.');
     }
     public function postYourself(Request $request)
@@ -36,6 +37,7 @@ class JobsController extends Controller
                 'expected_salary'=>$request['sal'],
             ]
         );
+        $request->session()->flash('alert-success', 'You were successful added!');
         return redirect()->back()->with('sucess','Sucessfully posted job.');
     }
     public function searchEmployee(Request $request)
